@@ -2,7 +2,6 @@ package com.dk.newyorktimes.ui.fragments
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -80,7 +79,7 @@ class ArticleSearchFragment : Fragment(), SearchView.OnQueryTextListener {
         articleViewModel.searchedArticles.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is NetworkResult.Success -> showResult(response, articleAdapter)
-                is NetworkResult.Error -> showNetworkError(response)
+                is NetworkResult.Error -> showUIError(response.message.toString())
                 is NetworkResult.Loading -> showLoading()
             }
         })
@@ -89,15 +88,6 @@ class ArticleSearchFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun showLoading() {
         hideUIError()
         binding.articlesRecyclerView.showShimmer()
-    }
-
-    private fun showNetworkError(response: NetworkResult<List<Article>>) {
-        showUIError(response.message.toString())
-        Toast.makeText(
-            requireContext(),
-            response.message.toString(),
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
     private fun showResult(response: NetworkResult<List<Article>>, articleAdapter: ArticleAdapter) {

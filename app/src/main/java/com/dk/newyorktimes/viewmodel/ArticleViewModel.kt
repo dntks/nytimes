@@ -29,6 +29,10 @@ class ArticleViewModel @Inject constructor(
 
     fun searchArticles(name: String = "") {
         searchedArticles.value = NetworkResult.Loading()
+        if (networkConnectionChecker.hasInternetConnection(getApplication()).not()) {
+            searchedArticles.value = NetworkResult.Error("No Internet Connection")
+            return
+        }
         viewModelScope.launch(exceptionHandler) {
             val articles: NetworkResult<List<Article>> = getArticles(name)
             searchedArticles.value = articles
