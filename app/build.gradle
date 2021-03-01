@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id "androidx.navigation.safeargs.kotlin"
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -9,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.dk.newyorktimes"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -29,6 +33,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
     }
 }
 
@@ -51,4 +59,10 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2'
+
+    // Dagger - Hilt
+    implementation "com.google.dagger:hilt-android:2.31.2-alpha"
+    kapt "com.google.dagger:hilt-android-compiler:2.31.2-alpha"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha03"
 }
