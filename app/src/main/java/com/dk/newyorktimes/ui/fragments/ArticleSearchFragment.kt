@@ -53,7 +53,7 @@ class ArticleSearchFragment : Fragment(), SearchView.OnQueryTextListener {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.characters_menu, menu)
+        inflater.inflate(R.menu.menu, menu)
 
         val searchItem = menu.findItem(R.id.menu_search)
         val searchView = (searchItem.actionView as SearchView)
