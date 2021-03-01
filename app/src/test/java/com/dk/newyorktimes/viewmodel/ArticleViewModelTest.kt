@@ -62,6 +62,25 @@ class ArticleViewModelTest {
             }
             assertTrue(slotIds[0] is NetworkResult.Loading)
             assertTrue(slotIds[1] is NetworkResult.Error)
+            assertTrue(slotIds[1].message == "No Internet Connection")
+        }
+    }
+
+    @Test
+    fun testGivenRemoteDataSourceSearchArticlesThrowsExceptionWhenSearchArticlesThenArticlesNotFoundErrorObserved() {
+        testCoroutineRule.runBlockingTest {
+            every { networkConnectionChecker.hasInternetConnection(any()) } returns true
+            coEvery { remoteDataSource.searchArticles(any()) } throws RuntimeException("something happened")
+
+            articleViewModel.searchArticles()
+
+            val slotIds = mutableListOf<NetworkResult<List<Article>>>()
+            verifyAll {
+                observer.onChanged(capture(slotIds))
+                networkConnectionChecker.hasInternetConnection(application)
+            }
+            assertTrue(slotIds[1] is NetworkResult.Error)
+            assertTrue(slotIds[1].message == "Articles Not Found")
         }
     }
 
