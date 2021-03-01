@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nytimes_nav">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nytimes_nav"
+    app:startDestination="@id/articleSearchFragment">
 
+    <fragment
+        android:id="@+id/articleSearchFragment"
+        android:name="com.dk.newyorktimes.ui.fragments.ArticleSearchFragment"
+        android:label="ArticleSearchFragment" >
+        <action
+            android:id="@+id/action_articleSearchFragment_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleDetailsFragment"
+        android:name="com.dk.newyorktimes.ui.fragments.ArticleDetailsFragment"
+        android:label="ArticleDetailsFragment" />
 </navigation>
