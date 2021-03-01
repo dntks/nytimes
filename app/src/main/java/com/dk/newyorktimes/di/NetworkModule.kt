@@ -1,5 +1,6 @@
 package com.dk.newyorktimes.di
 
+import com.dk.newyorktimes.network.NetworkConnectionChecker
 import com.dk.newyorktimes.network.api.NYTimesApi
 import com.dk.newyorktimes.util.Constants.Companion.BASE_URL
 import dagger.Module
@@ -48,4 +49,9 @@ object NetworkModule {
     @Singleton
     fun provideNYTimesApi(retrofit: Retrofit): NYTimesApi =
         retrofit.create(NYTimesApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideNetworkConnectionChecker(): NetworkConnectionChecker =
+        NetworkConnectionChecker()
 }

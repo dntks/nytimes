@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.dk.newyorktimes.network.NetworkConnectionChecker
 import com.dk.newyorktimes.network.NetworkResult
 import com.dk.newyorktimes.network.Repository
 import com.dk.newyorktimes.network.model.ArticleSearchResponse
@@ -16,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ArticleViewModel @Inject constructor(
     private val repository: Repository,
+    private val networkConnectionChecker: NetworkConnectionChecker,
     application: Application
 ) : AndroidViewModel(application) {
 

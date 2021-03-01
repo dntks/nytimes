@@ -15,6 +15,7 @@ import com.dk.newyorktimes.network.NetworkResult
 import com.dk.newyorktimes.ui.adapter.ArticleAdapter
 import com.dk.newyorktimes.ui.fragments.ArticleSearchFragmentDirections.Companion.actionArticleSearchFragmentToArticleDetailsFragment
 import com.dk.newyorktimes.ui.model.Article
+import com.dk.newyorktimes.util.hideKeyboard
 import com.dk.newyorktimes.viewmodel.ArticleViewModel
 
 class ArticleSearchFragment : Fragment(), SearchView.OnQueryTextListener {
@@ -69,6 +70,7 @@ class ArticleSearchFragment : Fragment(), SearchView.OnQueryTextListener {
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         articleViewModel.searchArticles(query.orEmpty())
+        hideKeyboard()
         return true
     }
 

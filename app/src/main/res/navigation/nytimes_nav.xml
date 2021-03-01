@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nytimes_nav"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nytimes_nav"
     app:startDestination="@id/articleSearchFragment">
 
     <fragment
@@ -9,7 +10,11 @@
         android:label="NYTimes">
         <action
             android:id="@+id/action_articleSearchFragment_to_articleDetailsFragment"
-            app:destination="@id/articleDetailsFragment" />
+            app:destination="@id/articleDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/articleDetailsFragment"
