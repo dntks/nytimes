@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="details_headline_size">24sp</dimen>
+    <dimen name="error_image_size">100dp</dimen>
+    <dimen name="error_text_size">18sp</dimen>
+    <dimen name="item_image_size">170dp</dimen>
+    <dimen name="item_name_size">28sp</dimen>
+    <dimen name="margin_big">12dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="title_max_size">120dp</dimen>
+</resources>

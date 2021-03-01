@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/articleSearchFragment"
         android:name="com.dk.newyorktimes.ui.fragments.ArticleSearchFragment"
-        android:label="ArticleSearchFragment" >
+        android:label="NYTimes">
         <action
             android:id="@+id/action_articleSearchFragment_to_articleDetailsFragment"
             app:destination="@id/articleDetailsFragment" />
@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/articleDetailsFragment"
         android:name="com.dk.newyorktimes.ui.fragments.ArticleDetailsFragment"
-        android:label="ArticleDetailsFragment">
+        android:label="Article">
         <argument
             android:name="article"
             app:argType="com.dk.newyorktimes.ui.model.Article" />
