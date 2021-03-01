@@ -14,5 +14,9 @@
     <fragment
         android:id="@+id/articleDetailsFragment"
         android:name="com.dk.newyorktimes.ui.fragments.ArticleDetailsFragment"
-        android:label="ArticleDetailsFragment" />
+        android:label="ArticleDetailsFragment">
+        <argument
+            android:name="article"
+            app:argType="com.dk.newyorktimes.ui.model.Article" />
+    </fragment>
 </navigation>
